@@ -65,9 +65,10 @@
   display: none;
 }
 
-/* td{
-  max-width: 200px;
+.TextWrap{
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-} */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}

@@ -3,6 +3,13 @@ import ExhibitionService from "./services/exhibitionService";
 import MaterialTable from "material-table";
 
 import "./App.css";
+import { Exhibition } from "./model/model";
+
+enum STATUS {
+  CLOSED = "Closed",
+  OPEN = "Open",
+  CONFIRMED = "Confirmed"
+}
 
 const Exhibitions: React.FC<{}> = () => {
   // Call Service
@@ -18,18 +25,35 @@ const Exhibitions: React.FC<{}> = () => {
         <div className="TableWrapper">
           <MaterialTable
             columns={[
-              { title: "Title", field: "title"},
-              { title: "Description", field: "short_description"},
-              { title: "Is Featured", field: "is_featured"},
-              { title: "Gallery Title", field: "gallery_title"},
-              { title: "Type of Exhibition", field: "type"},
+              { 
+                title: "Title",
+                field: "title",
+              },
+              { 
+                title: "Description",
+                field: "short_description",
+                render: (rowData: Exhibition) => <div className="TextWrap">{rowData.short_description}</div>,
+              },
+              { 
+                title: "Is Featured",
+                field: "is_featured",
+              },
+              { 
+                title: "Gallery Title",
+                field: "gallery_title",
+              },
+              { 
+                title: "Type of Exhibition",
+                field: "type",
+              },
             ]}
             data={exhibitionService.payload}
             options={{
               sorting: true,
-              rowStyle: rowData => ({
-                backgroundColor: (rowData.status === 'Closed') ? '#f4d5d5' : ((rowData.status === 'Open') ? '#cdeac4' : 'white')
-              }),
+              pageSize: 30,
+              rowStyle: (rowData) => {
+                return  {backgroundColor: (rowData.status === STATUS.CLOSED) ? '#f4d5d5' : (rowData.status === STATUS.CONFIRMED) ? '#cdeac4' : 'white'}
+              },
               searchFieldStyle: ({
                 width: "100%",
               }),
