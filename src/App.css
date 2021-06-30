@@ -1,0 +1,73 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.TableWrapper{
+  padding: 20px 50px;
+}
+
+/*
+  Styles to set search to full-width
+*/
+
+.MuiToolbar-root.MuiToolbar-regular.MTableToolbar-root-5.MuiToolbar-gutters{
+  padding: 0 20px;
+}
+.MuiToolbar-root.MuiToolbar-regular.MTableToolbar-root-5.MuiToolbar-gutters .MTableToolbar-spacer-7{
+  display: none;
+}
+.MuiFormControl-root.MuiTextField-root.MTableToolbar-searchField-10{
+  width: 100%;
+  padding: 10px;
+  border-radius: 50px;
+  border: 1px solid #aca9a9;
+}
+
+.MuiInputBase-root.MuiInput-root.MuiInput-underline.MuiInputBase-formControl.MuiInput-formControl::before{
+  display: none;
+}
+.MuiInputBase-root.MuiInput-root.MuiInput-underline.MuiInputBase-formControl.MuiInput-formControl.Mui-focused::after{
+  display: none;
+}
+
+/* td{
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+} */
